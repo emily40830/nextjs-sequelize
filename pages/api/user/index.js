@@ -6,7 +6,7 @@ export default async (req, res) => {
   let sql = `SELECT * FROM USERS`;
   //const result = await db.get(sql);
   db.all(sql, (err, rows) => {
-    if (err) throw err;
+    if (err) res.status(500).json(err);
 
     res.status(200).json(rows);
   });
